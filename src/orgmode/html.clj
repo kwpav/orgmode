@@ -126,13 +126,6 @@
 (defmethod hiccupify :code [x]
   (into [:code] (hiccupify (:content x))))
 
-(defmethod hiccupify :comment [x]
-  (list "<!-- "
-        (hiccupify (:content x))
-        " -->"
-        (when-let [tgts (filter #(= :target (:type %)) (:content x))]
-          (map hiccupify tgts))))
-
 (defmethod hiccupify :verbatim [x]
   (into [:verbatim] (:content x)))
 
