@@ -139,4 +139,4 @@
         (map hiccupify x))
 
 (defmethod hiccupify :default [x]
-  (str x "\n"))
+  [:p (str x "\n")])
